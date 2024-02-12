@@ -1,6 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {IServerResponse, IUser} from "../../Models/models";
-import {BaseQueryMeta, BaseQueryResult} from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 
 export const githubApi = createApi({
     reducerPath: 'github/api',
