@@ -5,7 +5,7 @@ import {IUser} from "../Models/models";
 import ReposCard from "../Components/ReposCard";
 
 const HomePage = () => {
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('AnatolyRM')
     const [dropdown, setDropdown] = useState(false)
     const debounced = useDebounce(search)
     const {isLoading, isError, data: userData} = useSearchUsersQuery(debounced, {
