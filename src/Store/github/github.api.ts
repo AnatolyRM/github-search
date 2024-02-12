@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {IServerResponse, IUser} from "../../Models/models";
+import {BaseQueryMeta, BaseQueryResult} from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 
 export const githubApi = createApi({
     reducerPath: 'github/api',
@@ -7,13 +8,15 @@ export const githubApi = createApi({
         baseUrl: 'https://api.github.com/'
     }),
     endpoints: build => ({
-        searchUsers: build.query<IServerResponse<IUser>, string>({
+        searchUsers: build.query<IUser[], string>({
             query: (search: string) => ({
                 url: 'search/users',
                 params: {
-                    q: search
+                    q: search,
+                    per_page: 10
                 }
-            })
+            }),
+            transformResponse: (response: IServerResponse<IUser>) => response.items
         })
     })
 })
