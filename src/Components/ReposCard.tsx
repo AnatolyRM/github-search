@@ -33,6 +33,7 @@ const ReposCard = ({repo}: IProps) => {
                 </p>
                 <p className='text-sm font-thin'>{repo?.description}</p>
             </a>
+
             {!isFav
                 ? <button
                     onClick={addToFavorites}
