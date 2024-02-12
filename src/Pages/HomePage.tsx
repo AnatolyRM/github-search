@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useLazyGetUsersRepoQuery, useSearchUsersQuery} from "../Store/github/github.api";
 import {useDebounce} from "../Hooks/debounce";
 import {IUser} from "../Models/models";
+import ReposCard from "../Components/ReposCard";
 
 const HomePage = () => {
     const [search, setSearch] = useState('')
@@ -19,7 +20,7 @@ const HomePage = () => {
 
     const clickHandler = (userLogin: IUser['login']) => {
         fetchRepos(userLogin)
-        console.log(repos)
+        setDropdown(false)
     }
 
     return (
@@ -46,7 +47,8 @@ const HomePage = () => {
                     ))}
                 </ul>}
                 <div className="container">
-                    {isRepoLoading && <p className='text-center'>Repos are loading...</p>}
+                    { isRepoLoading && <p className='text-center'>Repos are loading...</p> }
+                    { repos?.map(repo => <ReposCard repo={repo} key={repo.id}/> )}
                 </div>
             </div>
         </div>
