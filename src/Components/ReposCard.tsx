@@ -7,7 +7,7 @@ interface IProps {
     repo: IRepos
 }
 
-const ReposCard = ({repo}: IProps) => {
+export const ReposCard = ({repo}: IProps) => {
     const {addFavourites, removeFavourites} = useActions();
     const {favourites} =useAppSelector(store => store.github)
     const [isFav, setIsFav] = useState(favourites.includes(repo.html_url))
@@ -46,5 +46,3 @@ const ReposCard = ({repo}: IProps) => {
         </div>
     );
 };
-
-export default ReposCard;

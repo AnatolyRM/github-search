@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {useLazyGetUsersRepoQuery, useSearchUsersQuery} from "../Store/github/github.api";
 import {useDebounce} from "../Hooks/debounce";
 import {IUser} from "../Models/models";
-import ReposCard from "../Components/ReposCard";
+import {ReposCard} from "../Components/ReposCard";
 
-const HomePage = () => {
+export const HomePage = () => {
     const [search, setSearch] = useState('')
     const [dropdown, setDropdown] = useState(false)
     const debounced = useDebounce(search)
@@ -54,5 +54,3 @@ const HomePage = () => {
         </div>
     );
 };
-
-export default HomePage;
