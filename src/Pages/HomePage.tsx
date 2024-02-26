@@ -13,11 +13,9 @@ export const HomePage = () => {
         refetchOnFocus: true
     });
     const [fetchRepos, {isLoading: isRepoLoading, data: repos}] = useLazyGetUsersRepoQuery();
-
     useEffect(() => {
         setDropdown(debounced.length > 3 && userData?.length! > 0)
     }, [debounced, userData])
-
     const clickHandler = (userLogin: IUser['login']) => {
         fetchRepos(userLogin)
         setDropdown(false)
