@@ -11,6 +11,7 @@ export const ReposCard = ({repo}: IProps) => {
     const {addFavourites, removeFavourites} = useActions();
     const {favourites} =useAppSelector(store => store.github)
     const [isFav, setIsFav] = useState(favourites.includes(repo.html_url))
+
     const addToFavorites = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         addFavourites(repo.html_url)
