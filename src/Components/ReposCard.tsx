@@ -17,6 +17,7 @@ export const ReposCard = ({repo}: IProps) => {
         addFavourites(repo.html_url)
         setIsFav(true)
     }
+
     const removeFromFavorites = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         removeFavourites(repo.html_url)
